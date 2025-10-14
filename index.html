@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<div class="cta">
+<input id="email" class="input" type="email" name="email" inputmode="email" autocomplete="email" placeholder="Your email address" required aria-required="true" />
+<button class="btn" type="submit">Notify Me</button>
+</div>
+<p class="help">We’ll only email for meaningful updates. No spam. Unsubscribe anytime.</p>
+<div id="success" class="success" role="status" aria-live="polite">Thanks! You’re on the list. ✨</div>
+</form>
+
+
+<div class="links">
+<a href="mailto:hello@wanderlightmagazine.com">Media & partnerships</a>
+&nbsp;•&nbsp;
+<a href="#" aria-disabled="true" onclick="return false;">Instagram (coming soon)</a>
+</div>
+</section>
+</main>
+
+
+<footer>
+© <span id="year"></span> Wanderlight Media. All rights reserved.
+</footer>
+</div>
+
+
+<script>
+// Dynamic year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+
+// Netlify-enhanced submit: show inline success without a redirect
+const form = document.getElementById('notify-form');
+const success = document.getElementById('success');
+
+
+function encode(data) {
+return Object.keys(data)
+.map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+.join('&');
+}
+
+
+form.addEventListener('submit', async (e) => {
+e.preventDefault();
+const formData = new FormData(form);
+try {
+await fetch('/', {
+method: 'POST',
+headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+body: encode({ 'form-name': form.getAttribute('name'), ...Object.fromEntries(formData) })
+});
+form.reset();
+success.style.display = 'block';
+} catch (err) {
+// If JS submit fails, fall back to normal POST
+form.submit();
+}
+});
+</script>
+</body>
+</html>
