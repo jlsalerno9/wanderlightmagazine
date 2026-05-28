@@ -11,37 +11,36 @@
   <meta property="og:description" content="A magazine for the inward journey." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://wanderlightmagazine.com" />
-  <meta name="theme-color" content="#0A0A0A" />
+  <meta name="theme-color" content="#F4F1EC" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #090807;
-      --text: #f6f0e8;
-      --muted: #cfc4b7;
-      --line: rgba(246, 240, 232, 0.55);
-      --soft: rgba(246, 240, 232, 0.08);
+      --indigo:     #081D2F;
+      --turquoise:  #2A8F8B;
+      --pearl:      #F4F1EC;
+      --sandstone:  #E9DDC6;
+      --coral:      #F7C4BE;
+      --muted:      rgba(8, 29, 47, 0.45);
+      --muted-lt:   rgba(8, 29, 47, 0.25);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html,
-    body {
-      min-height: 100%;
-    }
+    html, body { min-height: 100%; }
 
     body {
       margin: 0;
-      background:
-        radial-gradient(circle at center, rgba(246, 240, 232, 0.08) 0%, rgba(9, 8, 7, 0) 36%),
-        linear-gradient(180deg, #050505 0%, var(--bg) 100%);
-      color: var(--text);
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--pearl);
+      background-image:
+        radial-gradient(ellipse 90% 50% at 50% -10%, rgba(233, 221, 198, 0.7) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 90% 105%, rgba(247, 196, 190, 0.22) 0%, transparent 60%);
+      color: var(--indigo);
+      font-family: "Inter", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
 
     .page {
@@ -49,157 +48,183 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 42px 22px;
+      padding: 72px 28px;
       text-align: center;
     }
 
     .inner {
       width: 100%;
-      max-width: 780px;
+      max-width: 760px;
+    }
+
+    /* Turquoise rule — breath before the wordmark */
+    .rule-top {
+      width: 40px;
+      height: 1px;
+      background: var(--turquoise);
+      margin: 0 auto 48px;
     }
 
     .logo {
-      font-family: "Playfair Display", Georgia, serif;
+      font-family: "Lora", Georgia, serif;
       font-weight: 400;
-      font-size: clamp(3.2rem, 10vw, 7.4rem);
+      font-size: clamp(3rem, 10vw, 7rem);
       line-height: 0.95;
-      letter-spacing: 0.105em;
+      letter-spacing: 0.085em;
+      text-indent: 0.085em;
       margin: 0 0 22px;
-      text-indent: 0.105em;
+      color: var(--indigo);
     }
 
     .kicker {
-      margin: 0 0 34px;
-      font-size: 0.74rem;
+      margin: 0 0 48px;
+      font-family: "Inter", sans-serif;
+      font-size: 0.7rem;
       line-height: 1.5;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--turquoise);
+    }
+
+    /* Vertical rule — pause before the body */
+    .rule-mid {
+      width: 1px;
+      height: 44px;
+      background: var(--muted-lt);
+      margin: 0 auto 48px;
     }
 
     .intro {
-      max-width: 575px;
-      margin: 0 auto 40px;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(1.35rem, 2.6vw, 2rem);
-      line-height: 1.45;
+      max-width: 520px;
+      margin: 0 auto 56px;
+      font-family: "Lora", Georgia, serif;
+      font-style: italic;
+      font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+      line-height: 1.6;
       font-weight: 400;
-      color: var(--text);
+      color: var(--indigo);
+      opacity: 0.82;
     }
 
+    /* Form */
     .form-wrap {
-      max-width: 460px;
+      max-width: 440px;
       margin: 0 auto;
     }
 
-    label {
+    .form-label {
       display: block;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
+      font-family: "Inter", sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
       color: var(--muted);
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
     }
 
     .cta {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 10px;
     }
 
     .input,
     .btn {
-      min-height: 48px;
+      min-height: 50px;
       border-radius: 0;
-      font: inherit;
+      font-family: "Inter", sans-serif;
+      font-size: 0.88rem;
     }
 
     .input {
       width: 100%;
-      padding: 13px 15px;
-      border: 1px solid var(--line);
+      padding: 14px 16px;
+      border: 1px solid rgba(8, 29, 47, 0.22);
+      border-right: none;
       background: transparent;
-      color: var(--text);
+      color: var(--indigo);
       outline: none;
+      transition: border-color 0.18s;
     }
 
     .input::placeholder {
-      color: rgba(246, 240, 232, 0.45);
+      color: var(--muted-lt);
     }
 
     .input:focus {
-      border-color: var(--text);
-      background: var(--soft);
+      border-color: var(--indigo);
     }
 
     .btn {
-      padding: 13px 20px;
-      border: 1px solid var(--text);
-      background: var(--text);
-      color: var(--bg);
+      padding: 14px 26px;
+      border: 1px solid var(--indigo);
+      background: var(--indigo);
+      color: var(--pearl);
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      font-size: 0.78rem;
+      font-size: 0.7rem;
+      font-weight: 500;
       cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.18s, border-color 0.18s;
     }
 
     .btn:hover {
-      background: transparent;
-      color: var(--text);
+      background: var(--turquoise);
+      border-color: var(--turquoise);
     }
 
     .note {
-      margin: 14px 0 0;
-      color: rgba(207, 196, 183, 0.76);
-      font-size: 0.82rem;
+      margin: 16px 0 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-style: italic;
+      font-size: 1rem;
       line-height: 1.5;
+      color: var(--muted);
     }
 
     .success {
       display: none;
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .links {
-      margin-top: 46px;
-      font-size: 0.86rem;
-      color: rgba(207, 196, 183, 0.72);
-    }
-
-    .links a {
-      color: var(--muted);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(207, 196, 183, 0.45);
-    }
-
-    .links a:hover {
-      color: var(--text);
-      border-bottom-color: var(--text);
+      margin-top: 22px;
+      font-family: "Lora", Georgia, serif;
+      font-style: italic;
+      font-size: 1rem;
+      line-height: 1.55;
+      color: var(--turquoise);
     }
 
     footer {
-      margin-top: 72px;
-      color: rgba(207, 196, 183, 0.48);
-      font-size: 0.76rem;
+      margin-top: 88px;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      color: var(--muted-lt);
     }
 
     @media (max-width: 560px) {
       .page {
-        padding: 34px 18px;
+        padding: 56px 22px;
       }
 
       .logo {
-        letter-spacing: 0.075em;
-        text-indent: 0.075em;
+        letter-spacing: 0.055em;
+        text-indent: 0.055em;
       }
 
       .intro {
-        font-size: 1.32rem;
+        font-size: 1.18rem;
       }
 
       .cta {
         grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      /* Restore right border when stacked */
+      .input {
+        border-right: 1px solid rgba(8, 29, 47, 0.22);
+      }
+
+      .input:focus {
+        border-color: var(--indigo);
       }
 
       .btn {
@@ -212,12 +237,17 @@
 <body>
   <main class="page">
     <section class="inner" aria-labelledby="title">
+
+      <div class="rule-top" aria-hidden="true"></div>
+
       <h1 id="title" class="logo">Wanderlight</h1>
 
-      <p class="kicker">A magazine for the inward journey</p>
+      <p class="kicker">A travel magazine for the inward journey</p>
+
+      <div class="rule-mid" aria-hidden="true"></div>
 
       <p class="intro">
-        Travel stories for the curious, the seekers, the ones who know the world is full of signs pointing us back to ourselves.
+        Stories for the curious, the seekers, the ones who know the world is full of signs pointing us back to our true&nbsp;selves.
       </p>
 
       <div class="form-wrap">
@@ -225,10 +255,10 @@
           <input type="hidden" name="form-name" value="notify-me" />
 
           <p style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;">
-            <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
           </p>
 
-          <label for="email">Be the first to know when we launch</label>
+          <label class="form-label" for="email">Be the first to know when we launch</label>
 
           <div class="cta">
             <input
@@ -245,8 +275,10 @@
             <button class="btn" type="submit">Join</button>
           </div>
 
+          <p class="note">No noise. Just the stories that stay with you.</p>
+
           <div id="success" class="success" role="status" aria-live="polite">
-            Thank you — you’re on the list.
+            You're on the list. We'll be in touch when the light turns on.
           </div>
         </form>
       </div>
@@ -254,13 +286,14 @@
       <footer>
         © <span id="year"></span> Waylight Media. All rights reserved.
       </footer>
+
     </section>
   </main>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    const form = document.getElementById("notify-form");
+    const form  = document.getElementById("notify-form");
     const success = document.getElementById("success");
 
     function encode(data) {
